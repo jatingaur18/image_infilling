@@ -53,7 +53,7 @@ const ImageInfill = () => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    ctxRef.current.lineWidth = 10;
+    ctxRef.current.lineWidth = 1;
     ctxRef.current.lineCap = 'round';
     ctxRef.current.strokeStyle = 'black';
 
