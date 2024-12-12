@@ -211,13 +211,11 @@ def inpaint_image():
     pred_np = pred.squeeze().permute(1, 2, 0).numpy() * 255
     pred_np = np.clip(pred_np, 0, 255).astype(np.uint8)
 
-    inpainted = cv2.inpaint(original, binary_mask, 3, cv2.INPAINT_NS)
-
     response = {
         'originalImage': data['original'],
         'userMaskedImage': data['mask'],
         'pythonGeneratedMask': image_to_base64(python_generated_mask),
-        'inpaintedImage': image_to_base64(inpainted),
+        'inpaintedImage': image_to_base64(pred_np),
     }
 
     return jsonify(response)
